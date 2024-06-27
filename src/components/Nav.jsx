@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Link } from 'react-router-dom'
+import { ProductContext } from '../utils/Context'
 
 const Nav = () => {
  
-//   const color = () => {
-//     return `rgba(${(Math.random() * 255).toFixed()},${(Math.random() * 255).toFixed()}, ${(Math.random() * 255).toFixed()}, ${(Math.random() * 255).toFixed()})`
-//   }
+const [product] = useContext(ProductContext)
+
+  const color = () => {
+    return `rgba(${(Math.random() * 255).toFixed()},${(Math.random() * 255).toFixed()}, ${(Math.random() * 255).toFixed()}, ${(Math.random() * 255).toFixed()})`
+  }
 
   return (
     <nav className='w-[15%] h-full bg-zinc-100 flex flex-col items-center pt-5 overflow-x-hidden overflow-y-auto'>
