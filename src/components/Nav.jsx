@@ -5,8 +5,9 @@ import { ProductContext } from '../utils/Context'
 
 const Nav = () => {
  
-const [product] = useContext(ProductContext)
-
+const [products] = useContext(ProductContext)
+let distinct_category = products && products.reduce((acc,cv) => [...acc,cv.category],[])   // iska use hum product ko category mein divide krne ke liye kar rhe hai ye bilkul map ki tarah hota hai acc=origional val and cv= current value  aur isse maine har ek product ki category nikal li 
+distinct_category = [...new Set(distinct_category)]; //is line se maine har category ke set bana diye 
   const color = () => {
     return `rgba(${(Math.random() * 255).toFixed()},${(Math.random() * 255).toFixed()}, ${(Math.random() * 255).toFixed()}, ${(Math.random() * 255).toFixed()})`
   }
@@ -19,7 +20,7 @@ const [product] = useContext(ProductContext)
         <div className='w-[80%]'>
 
           {distinct_category.map((c,i) => (
-              <Link  className='mb-3 flex items-center gap-1 font-semibold'>
+              <Link key={i} className='mb-3 flex items-center gap-1 font-semibold'>
               <span style={{backgroundColor:color()}} className='block rounded-full w-[15px] h-[15px]'></span>{""}{c}
             </Link>
           ))}
