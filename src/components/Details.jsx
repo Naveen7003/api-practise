@@ -13,7 +13,6 @@ const Details = () => {
     console.log(error)
   }
  }
-
  useEffect(()=>{
   getsingleproduct()
  })
